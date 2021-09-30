@@ -151,7 +151,7 @@ const styles = {
     },
     overlay: {
         position: 'absolute',
-        height: 'calc(100vh - 152px)',
+        height: 'calc(100% - 10%)',
         width: 'inherit',
         display: 'flex'
     }
