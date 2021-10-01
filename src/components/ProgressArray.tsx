@@ -88,7 +88,7 @@ const styles = {
         padding: 5,
         paddingTop: 7,
         alignSelf: 'center',
-        zIndex: 99,
+        zIndex: 9,
         // filter: 'drop-shadow(0 1px 8px #222)',
         bottom: '-40px',
     }
