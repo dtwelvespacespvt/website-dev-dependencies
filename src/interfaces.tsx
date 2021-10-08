@@ -20,6 +20,8 @@ export interface ReactInstaStoriesProps {
     onStoryStart?: Function;
     onStoryEnd?: Function;
     keyboardNavigation?: boolean;
+    subHeading?: NumberOrString;
+    shareIcon?: string;
 }
 
 export interface GlobalCtx {
@@ -41,6 +43,8 @@ export interface GlobalCtx {
     onStoryStart?: Function;
     onStoryEnd?: Function;
     keyboardNavigation?: boolean;
+    subHeading?: NumberOrString;
+    shareIcon?: string
 }
 
 type NumberOrString = number | string;

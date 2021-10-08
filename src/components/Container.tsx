@@ -15,7 +15,7 @@ export default function () {
     let mousedownId = useRef<any>();
     let isMounted = useRef<boolean>(true);
 
-    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, storyContainerStyles = {} } = useContext<GlobalCtx>(GlobalContext);
+    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, storyContainerStyles = {}, subHeading = '', shareIcon = '' } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(() => {
@@ -134,9 +134,19 @@ export default function () {
                 story={stories[currentId]}
                 getVideoDuration={getVideoDuration}
             />
-            <div style={styles.overlay}>
-                <div style={{ width: '50%', zIndex: 9 }} onTouchStart={debouncePause} onTouchEnd={mouseUp('previous')} onMouseDown={debouncePause} onMouseUp={mouseUp('previous')} />
-                <div style={{ width: '50%', zIndex: 9 }} onTouchStart={debouncePause} onTouchEnd={mouseUp('next')} onMouseDown={debouncePause} onMouseUp={mouseUp('next')} />
+            {subHeading && <div style={styles.subHeading} className="sub-heading">
+                <div style={styles.subHeadingLeft}>
+                    {subHeading}
+                </div>
+                <div style={styles.subHeadingRight}>
+                    <img style={styles.shareIconImage} src={shareIcon} />
+                </div>
+            </div>}
+            <div style={styles.overlayLeft}>
+                <div style={{ width: '100%', zIndex: 9 }} onTouchStart={debouncePause} onTouchEnd={mouseUp('previous')} onMouseDown={debouncePause} onMouseUp={mouseUp('previous')} />
+            </div>
+            <div style={styles.overlayRight}>
+                <div style={{ width: '100%', zIndex: 9 }} onTouchStart={debouncePause} onTouchEnd={mouseUp('next')} onMouseDown={debouncePause} onMouseUp={mouseUp('next')} />
             </div>
         </div>
     )
@@ -149,10 +159,36 @@ const styles = {
         background: '#111',
         position: 'relative'
     },
-    overlay: {
+    overlayLeft: {
         position: 'absolute',
-        height: 'calc(100% - 10%)',
-        width: 'inherit',
+        height: 'calc(100% - 25%)',
+        width: '25%',
         display: 'flex'
+    },
+    overlayRight: {
+        position: 'absolute',
+        height: 'calc(100% - 25%)',
+        width: '25%',
+        display: 'flex',
+        right: '0'
+    },
+    subHeading: {
+        borderRadius: '0 0 4px 4px',
+        backgroundColor: '#000000',
+        marginTop: '5px',
+        color: '#ffffff',
+        padding: '13px 16px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    subHeadingLeft : {
+
+    },
+    subHeadingRight : {
+        cursor: 'pointer'
+    },
+    shareIconImage : {
+        width: '40px'
     }
 }

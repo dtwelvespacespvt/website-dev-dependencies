@@ -56,6 +56,8 @@ function App() {
 					width={976}
 					height={558}
 					loop={true}
+					subHeading={'Friends also looking for accommodation? Spread the word.'}
+					shareIcon={'https://res.cloudinary.com/stanza-living/image/upload/v1633697034/Website/micro-site/share-button-removebg-preview.png'}
 				></Stories>
 			</div>
 		</div>
