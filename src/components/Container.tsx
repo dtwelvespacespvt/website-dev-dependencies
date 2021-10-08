@@ -169,7 +169,7 @@ const styles = {
         position: 'absolute',
         height: 'calc(100% - 25%)',
         width: '25%',
-        display: 'flex',
+        display: 'flex',    
         right: '0'
     },
     subHeading: {
