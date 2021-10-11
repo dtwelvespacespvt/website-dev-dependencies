@@ -58,6 +58,7 @@ function App() {
 					loop={true}
 					subHeading={'Friends also looking for accommodation? Spread the word.'}
 					shareIcon={'https://res.cloudinary.com/stanza-living/image/upload/v1633697034/Website/micro-site/share-button-removebg-preview.png'}
+					onShareIconClick={() => alert('on onShareIconClick click')}
 				></Stories>
 			</div>
 		</div>

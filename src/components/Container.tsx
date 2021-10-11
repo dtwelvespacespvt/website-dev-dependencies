@@ -15,7 +15,7 @@ export default function () {
     let mousedownId = useRef<any>();
     let isMounted = useRef<boolean>(true);
 
-    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, storyContainerStyles = {}, subHeading = '', shareIcon = '' } = useContext<GlobalCtx>(GlobalContext);
+    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, storyContainerStyles = {}, subHeading = '', shareIcon = '', onShareIconClick = () => {} } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(() => {
@@ -138,7 +138,7 @@ export default function () {
                 <div style={styles.subHeadingLeft}>
                     {subHeading}
                 </div>
-                <div style={styles.subHeadingRight}>
+                <div style={styles.subHeadingRight} onClick={() => onShareIconClick()}>
                     <img style={styles.shareIconImage} src={shareIcon} />
                 </div>
             </div>}
