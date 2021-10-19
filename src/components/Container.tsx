@@ -15,7 +15,7 @@ export default function () {
     let mousedownId = useRef<any>();
     let isMounted = useRef<boolean>(true);
 
-    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, storyContainerStyles = {}, subHeading = '', shareIcon = '', onShareIconClick = () => {} } = useContext<GlobalCtx>(GlobalContext);
+    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, storyContainerStyles = {}, subHeading = '', shareIcon = '', onShareIconClick = () => {}, leftArrow = '', rightArrow = '' } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(() => {
@@ -142,11 +142,15 @@ export default function () {
                     <img style={styles.shareIconImage} src={shareIcon} />
                 </div>
             </div>}
-            <div style={styles.overlayLeft}>
-                <div style={{ width: '100%', zIndex: 9 }} onTouchStart={debouncePause} onTouchEnd={mouseUp('previous')} onMouseDown={debouncePause} onMouseUp={mouseUp('previous')} />
+            <div style={styles.overlayLeft} className="left-arrow-overlay">
+                <div style={styles.overlayLeftContainer} onTouchStart={debouncePause} onTouchEnd={mouseUp('previous')} onMouseDown={debouncePause} onMouseUp={mouseUp('previous')} >
+                    {leftArrow && <img className="left-arrow-img" style={styles.leftArrowImage} src={leftArrow} />}
+                </div>
             </div>
-            <div style={styles.overlayRight}>
-                <div style={{ width: '100%', zIndex: 9 }} onTouchStart={debouncePause} onTouchEnd={mouseUp('next')} onMouseDown={debouncePause} onMouseUp={mouseUp('next')} />
+            <div style={styles.overlayRight} className="right-arrow-overlay">
+                <div style={styles.overlayRightContainer} onTouchStart={debouncePause} onTouchEnd={mouseUp('next')} onMouseDown={debouncePause} onMouseUp={mouseUp('next')} >
+                    {rightArrow && <img className="right-arrow-img" style={styles.rightArrowImage} src={rightArrow} />}
+                </div>
             </div>
         </div>
     )
@@ -164,6 +168,14 @@ const styles = {
         height: 'calc(100% - 25%)',
         width: '25%',
         display: 'flex'
+    },
+    overlayLeftContainer : {
+        width: '100%', 
+        zIndex: 9, 
+    },
+    overlayRightContainer : {
+        width: '100%', 
+        zIndex: 9, 
     },
     overlayRight: {
         position: 'absolute',
@@ -190,5 +202,15 @@ const styles = {
     },
     shareIconImage : {
         width: '40px'
+    },
+    leftArrowImage : {
+        top: '50%',
+        position: 'absolute',
+        left: '10px'
+    },
+    rightArrowImage: {
+        top: '50%',
+        position: 'absolute',
+        right: '10px'
     }
 }

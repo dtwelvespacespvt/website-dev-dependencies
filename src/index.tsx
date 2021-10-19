@@ -28,6 +28,8 @@ const ReactInstaStories = function (props: ReactInstaStoriesProps) {
         subHeading: props.subHeading,
         shareIcon: props.shareIcon,
         onShareIconClick: props.onShareIconClick,
+        leftArrow: props.leftArrow,
+        rightArrow: props.rightArrow,
     }
     const [stories, setStories] = useState<{ stories: Story[] }>({ stories: generateStories(props.stories, renderers) });
     useEffect(() => {

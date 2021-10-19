@@ -23,6 +23,8 @@ export interface ReactInstaStoriesProps {
     subHeading?: NumberOrString;
     shareIcon?: string;
     onShareIconClick?: Function;
+    leftArrow?: string;
+    rightArrow?: string;
 }
 
 export interface GlobalCtx {
@@ -47,6 +49,8 @@ export interface GlobalCtx {
     subHeading?: NumberOrString;
     shareIcon?: string;
     onShareIconClick?: Function;
+    leftArrow?: string;
+    rightArrow?: string;
 }
 
 type NumberOrString = number | string;

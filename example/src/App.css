@@ -20,6 +20,28 @@ p {
 
 .stories {
 }
+.left-arrow-overlay .left-arrow-img {
+	display: none;
+}
+.right-arrow-overlay .right-arrow-img {
+	display: none;
+}
+
+.left-arrow-overlay:hover .left-arrow-img {
+	display: block;
+}
+.right-arrow-overlay:hover .right-arrow-img {
+	display: block;
+}
+
+@media only screen and (max-width: 768px) { 
+	.left-arrow-overlay .left-arrow-img {
+		display: none;
+	}
+	.right-arrow-overlay .right-arrow-img {
+		display: none;
+	}
+}
 
 .left {
 	display: flex;

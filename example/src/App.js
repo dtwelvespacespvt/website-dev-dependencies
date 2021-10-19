@@ -59,6 +59,8 @@ function App() {
 					subHeading={'Friends also looking for accommodation? Spread the word.'}
 					shareIcon={'https://res.cloudinary.com/stanza-living/image/upload/v1633697034/Website/micro-site/share-button-removebg-preview.png'}
 					onShareIconClick={() => alert('on onShareIconClick click')}
+					leftArrow={'https://dev-venus-web.stanzaliving.com/assets/arrow_backward_ios_24px.png'}
+					rightArrow={'https://dev-venus-web.stanzaliving.com/assets/arrow_forward_ios_24px.png'}
 				></Stories>
 			</div>
 		</div>
