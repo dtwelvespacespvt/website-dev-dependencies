@@ -32,6 +32,7 @@ const Story = (props: StoryProps) => {
 	return (
 		<div
 			style={{ ...styles.story, width: width, height: height }}
+			className="image-parent-wrapper"
 		>
 			{getStoryContent()}
 		</div>
